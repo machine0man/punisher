@@ -23,6 +23,7 @@ public class FieldForce : MonoBehaviour
 			if (m_hittableLayer == (m_hittableLayer | (1 << collision.gameObject.layer)))
 			{
 				collision.gameObject.GetComponent<Enemy>().AddDamage(m_damagePerSec * Time.deltaTime);
+				collision.gameObject.GetComponent<Enemy>().SetFFSpeedMultiplier(.5f);
 			}
 		}
 	}

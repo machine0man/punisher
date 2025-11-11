@@ -2,12 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Enemy : MonoBehaviour
+public class Enemy : Poolable
 {
 	[SerializeField] float m_health = 100f;
 	[SerializeField] float m_damagePerSecond = 1f;
 	[SerializeField] float m_damageRange = 1f;
-
+	[SerializeField] EnemyController m_controller;
 	private void Update()
 	{
 		if (Vector3.Distance(Gameplay.Player.Position, transform.position) < m_damageRange)
@@ -24,5 +24,9 @@ public class Enemy : MonoBehaviour
 		{
 			EnemySpawner.DestroyEnemy_s(this);
 		}
+	}
+	public void SetFFSpeedMultiplier(float m_ffSpeedMultiplier)
+	{
+		m_controller.FfSpeedMultiplier = m_ffSpeedMultiplier;
 	}
 }

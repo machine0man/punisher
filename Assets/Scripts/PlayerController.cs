@@ -6,9 +6,10 @@ public class PlayerController : MonoBehaviour
 {
 	[SerializeField] Joystick m_joystick;
 
+	[SerializeField] Rigidbody2D m_rb;
 	[SerializeField] float m_playerMoveSens = 1f;
 
-	private void Update()
+	private void FixedUpdate()
 	{
 		//Vector3 l_atttackDir = m_joystick.Dir;
 		//transform.position += m_playerMoveSens * Time.deltaTime * l_atttackDir;
@@ -34,7 +35,10 @@ public class PlayerController : MonoBehaviour
 
 
 		Vector3 l_movementDir = m_joystick.Dir;
-		transform.position += m_playerMoveSens * Time.deltaTime * l_movementDir;
+		transform.position += m_playerMoveSens * Time.fixedDeltaTime * l_movementDir;
+
+
+		//m_rb.MovePosition(transform.position + m_playerMoveSens * Time.fixedDeltaTime * l_movementDir);
 	}
 
 

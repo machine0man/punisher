@@ -13,5 +13,4 @@ public class KillerWheel : MonoBehaviour
 			collision.gameObject.GetComponent<Enemy>().AddDamage(m_damage);
 		}
 	}
-
 }

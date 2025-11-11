@@ -4,7 +4,7 @@ public class XPManager : MonoBehaviour
 {
 	static XPManager s_instance;
 
-	[SerializeField] float m_xp;
+	[SerializeField] float m_xp = 0f;
 
 	#region Unity Methods
 	private void Awake()
@@ -24,6 +24,9 @@ public class XPManager : MonoBehaviour
 	void AddXp(float a_xp)
 	{
 		m_xp += a_xp;
-	}
 
+
+		float l_xpValueInUI = m_xp / 10f;
+		UIMain.SetXpValue(l_xpValueInUI);
+	}
 }
